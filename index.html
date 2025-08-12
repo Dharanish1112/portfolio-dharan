@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharanish S - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        .image{
+            border-radius: 200px;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Advanced Gradient Backgrounds */
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 75%, #16213e 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+        
+        .gradient-bg-alt {
+            background: linear-gradient(45deg, #0a0a0a, #1a1a1a, #2a2a2a);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+        }
+        
+        .neon-gradient {
+            background: linear-gradient(45deg, #4a5568, #2d3748, #1a202c, #2d3748, #4a5568);
+            background-size: 300% 300%;
+            animation: neonFlow 6s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes neonFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Particle Background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: particleFloat 20s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Advanced Card Hover Effects */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-20px) rotateX(5deg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 50px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Morphing Blob Animation */
+        .morphing-blob {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+        
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            animation: glitch-1 0.5s infinite;
+            color: #64748b;
+            z-index: -1;
+        }
+        
+        .glitch::after {
+            animation: glitch-2 0.5s infinite;
+            color: #475569;
+            z-index: -2;
+        }
+        
+        @keyframes glitch {
+            0%, 74%, 76%, 100% { transform: translate(0); }
+            75% { transform: translate(-2px, 2px); }
+        }
+        
+        @keyframes glitch-1 {
+            0%, 74%, 76%, 100% { transform: translate(0); }
+            75% { transform: translate(2px, -2px); }
+        }
+        
+        @keyframes glitch-2 {
+            0%, 74%, 76%, 100% { transform: translate(0); }
+            75% { transform: translate(-2px, -2px); }
+        }
+        
+        /* Neon Glow Effects */
+        .neon-text {
+            color: #e2e8f0;
+            text-shadow: 
+                0 0 5px #64748b,
+                0 0 10px #64748b,
+                0 0 15px #475569,
+                0 0 20px #475569,
+                0 0 35px #334155,
+                0 0 40px #334155;
+            animation: neonFlicker 2s infinite alternate;
+        }
+        
+        @keyframes neonFlicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 
+                    0 0 5px #64748b,
+                    0 0 10px #64748b,
+                    0 0 15px #475569,
+                    0 0 20px #475569,
+                    0 0 35px #334155,
+                    0 0 40px #334155;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+        
+        /* Holographic Effect */
+        .holographic {
+            background: linear-gradient(45deg, #64748b, #475569, #334155);
+            background-size: 400% 400%;
+            animation: holographicShift 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @keyframes holographicShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* 3D Flip Cards */
+        .flip-card {
+            perspective: 1000px;
+            width: 100%;
+            height: 300px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        /* Liquid Animation */
+        .liquid-shape {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            animation: liquidMove 6s ease-in-out infinite;
+        }
+        
+        @keyframes liquidMove {
+            0%, 100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+                transform: translate(50px, -30px) rotate(180deg);
+            }
+        }
+        
+        /* Matrix Rain Effect */
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .matrix-char {
+            position: absolute;
+            color: #0f0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            animation: matrixFall 3s linear infinite;
+        }
+        
+        @keyframes matrixFall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        
+        /* Cyberpunk Grid */
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        
+        /* Skill Bar Animations */
+        .skill-bar {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: skillShine 2s ease-in-out;
+        }
+        
+        @keyframes skillShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Floating Elements */
+        .float-1 { animation: float1 6s ease-in-out infinite; }
+        .float-2 { animation: float2 8s ease-in-out infinite; }
+        .float-3 { animation: float3 10s ease-in-out infinite; }
+        
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        @keyframes float2 {
+            0%, 100% { transform: translateX(0px) rotate(0deg); }
+            50% { transform: translateX(30px) rotate(-180deg); }
+        }
+        
+        @keyframes float3 {
+            0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+        
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #8b5cf6;
+            white-space: nowrap;
+            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #8b5cf6; }
+        }
+        
+        /* Parallax Layers */
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        
+        .parallax-back { transform: translateZ(-1px) scale(2); }
+        .parallax-mid { transform: translateZ(0); }
+        .parallax-front { transform: translateZ(1px); }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Magnetic Effect */
+        .magnetic {
+            transition: transform 0.3s ease;
+        }
+        
+        /* Scroll Reveal Animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal-up.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal-left.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal-right.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full glass z-50 shadow-2xl border-b border-gray-700/30 cyber-grid">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold holographic glitch" data-text="Dharanish S">
+                    Dharanish S
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-gray-400 hover:to-gray-300 hover:bg-clip-text transition-all duration-300 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-300 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#about" class="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-gray-400 hover:to-gray-300 hover:bg-clip-text transition-all duration-300 relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-300 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#skills" class="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-gray-400 hover:to-gray-300 hover:bg-clip-text transition-all duration-300 relative group">
+                        Skills
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-300 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#experience" class="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-gray-400 hover:to-gray-300 hover:bg-clip-text transition-all duration-300 relative group">
+                        Experience
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-300 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#projects" class="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-gray-400 hover:to-gray-300 hover:bg-clip-text transition-all duration-300 relative group">
+                        Projects
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-300 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#contact" class="text-gray-400 hover:text-transparent hover:bg-gradient-to-r hover:from-gray-400 hover:to-gray-300 hover:bg-clip-text transition-all duration-300 relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-300 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen gradient-bg flex items-center justify-center pt-20 relative overflow-hidden">
+        <!-- Particle Background -->
+        <div class="particles">
+            <div class="particle" style="left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; width: 6px; height: 6px; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 30%; width: 3px; height: 3px; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 40%; width: 5px; height: 5px; animation-delay: 6s;"></div>
+            <div class="particle" style="left: 50%; width: 4px; height: 4px; animation-delay: 8s;"></div>
+            <div class="particle" style="left: 60%; width: 7px; height: 7px; animation-delay: 10s;"></div>
+            <div class="particle" style="left: 70%; width: 3px; height: 3px; animation-delay: 12s;"></div>
+            <div class="particle" style="left: 80%; width: 5px; height: 5px; animation-delay: 14s;"></div>
+            <div class="particle" style="left: 90%; width: 4px; height: 4px; animation-delay: 16s;"></div>
+        </div>
+        
+        <!-- Floating Geometric Shapes -->
+        <div class="absolute top-20 left-10 w-20 h-20 neon-gradient rounded-full float-1 opacity-10"></div>
+        <div class="absolute top-40 right-20 w-16 h-16 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg float-2 opacity-15"></div>
+        <div class="absolute bottom-40 left-20 w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-500 morphing-blob float-3 opacity-12"></div>
+        <div class="absolute bottom-20 right-10 w-24 h-24 bg-gradient-to-r from-gray-800 to-gray-700 rounded-full float-1 opacity-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="reveal-up">
+                <!-- Enhanced Profile Image -->
+                <div class="relative w-56 h-56 mx-auto mb-12">
+                    <div class="absolute inset-0 neon-gradient rounded-full morphing-blob opacity-30 blur-xl"></div>
+                    <div class="relative w-full h-full glass rounded-full flex items-center justify-center border-2 border-gray-600/30">
+                        <div class="w-48 h-48 bg-gradient-to-r from-gray-800 to-gray-700 rounded-full flex items-center justify-center text-gray-300 text-7xl font-black shadow-2xl">
+                           <img class="image" src="WhatsApp Image 2025-08-01 at 22.39.32.jpeg" >
+
+                        </div>
+                    </div>
+                    <!-- Orbiting Elements -->
+                    <div class="absolute top-0 left-1/2 w-4 h-4 bg-gradient-to-r from-gray-600 to-gray-500 rounded-full float-1 transform -translate-x-1/2"></div>
+                    <div class="absolute bottom-0 left-1/2 w-3 h-3 bg-gradient-to-r from-gray-700 to-gray-600 rounded-full float-2 transform -translate-x-1/2"></div>
+                    <div class="absolute left-0 top-1/2 w-5 h-5 bg-gradient-to-r from-gray-500 to-gray-400 rounded-full float-3 transform -translate-y-1/2"></div>
+                    <div class="absolute right-0 top-1/2 w-4 h-4 bg-gradient-to-r from-gray-600 to-gray-500 rounded-full float-1 transform -translate-y-1/2"></div>
+                </div>
+                
+                <!-- Enhanced Title with Multiple Effects -->
+                <div class="mb-6">
+                    <h1 class="text-6xl md:text-8xl font-black text-white mb-4 relative">
+                        <span class="neon-text">Hi, I'm</span>
+                    </h1>
+                    <h1 class="text-6xl md:text-8xl font-black mb-4">
+                        <span class="typewriter holographic">Dharanish S</span>
+                    </h1>
+                </div>
+                
+                <!-- Animated Subtitle -->
+                <div class="mb-12">
+                    <p class="text-2xl md:text-3xl text-gray-300 mb-4 font-medium">
+                        <span class="holographic mono">BE CSE (AI/ML) Student</span>
+                    </p>
+                    <p class="text-xl md:text-2xl text-gray-400">
+                        <span class="bg-gradient-to-r from-gray-400 via-gray-300 to-gray-200 bg-clip-text text-transparent">
+                            UI/UX Designer • Frontend Developer • Creative Technologist
+                        </span>
+                    </p>
+                </div>
+                
+                <!-- Enhanced Social Icons -->
+                <div class="flex justify-center space-x-8 mb-12">
+                    <a href="https://linkedin.com/in/dharanish-s" target="_blank" class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-600 rounded-full blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                        <div class="relative glass p-6 rounded-full text-gray-300 hover:text-gray-200 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12">
+                            <i class="fab fa-linkedin-in text-3xl"></i>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/919843742866" target="_blank" class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-600 rounded-full blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                        <div class="relative glass p-6 rounded-full text-gray-300 hover:text-gray-200 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12">
+                            <i class="fab fa-whatsapp text-3xl"></i>
+                        </div>
+                    </a>
+                    <a href="mailto:dharanish.s@example.com" class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-600 rounded-full blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                        <div class="relative glass p-6 rounded-full text-gray-300 hover:text-gray-200 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12">
+                            <i class="fas fa-envelope text-3xl"></i>
+                        </div>
+                    </a>
+                    <a href="https://github.com/Dharanish1112" target="_blank" class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-600 rounded-full blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                        <div class="relative glass p-6 rounded-full text-gray-300 hover:text-gray-200 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12">
+                            <i class="fab fa-github text-3xl"></i>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Enhanced CTA Button -->
+                <div class="relative inline-block group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+                    <a href="#about" class="relative inline-block glass px-12 py-4 rounded-full font-bold text-gray-300 text-lg hover:text-transparent hover:bg-gradient-to-r hover:from-gray-400 hover:to-gray-300 hover:bg-clip-text transition-all duration-300 transform group-hover:scale-105">
+                        <span class="flex items-center space-x-2">
+                            <span>Explore My Journey</span>
+                            <i class="fas fa-rocket ml-2 group-hover:animate-bounce"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Matrix Rain Effect -->
+        <div class="matrix-rain opacity-10">
+            <div class="matrix-char mono" style="left: 5%; animation-delay: 0s;">01</div>
+            <div class="matrix-char mono" style="left: 15%; animation-delay: 0.5s;">11</div>
+            <div class="matrix-char mono" style="left: 25%; animation-delay: 1s;">10</div>
+            <div class="matrix-char mono" style="left: 35%; animation-delay: 1.5s;">01</div>
+            <div class="matrix-char mono" style="left: 45%; animation-delay: 2s;">11</div>
+            <div class="matrix-char mono" style="left: 55%; animation-delay: 2.5s;">00</div>
+            <div class="matrix-char mono" style="left: 65%; animation-delay: 3s;">10</div>
+            <div class="matrix-char mono" style="left: 75%; animation-delay: 3.5s;">01</div>
+            <div class="matrix-char mono" style="left: 85%; animation-delay: 4s;">11</div>
+            <div class="matrix-char mono" style="left: 95%; animation-delay: 4.5s;">10</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
+                <div class="w-24 h-1 gradient-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-white mb-6">
+                        Passionate Designer & Developer
+                    </h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        I'm Dharanish S, currently pursuing BE in Computer Science Engineering with specialization in AI/ML at KRCE. 
+                        I'm passionate about creating beautiful, functional digital experiences that solve real-world problems.
+                    </p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        With expertise in frontend web development, UI/UX design, video editing, 3D animation, and machine learning, 
+                        I bring a unique blend of technical skills and creative vision to every project.
+                    </p>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        I'm certified in Machine Learning with 96% score from Internshala and have completed multiple internships 
+                        that have shaped my professional journey.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="bg-purple-600/20 text-purple-300 border border-purple-500/30 px-4 py-2 rounded-full text-sm font-medium">AI/ML Enthusiast</span>
+                        <span class="bg-blue-600/20 text-blue-300 border border-blue-500/30 px-4 py-2 rounded-full text-sm font-medium">UI/UX Designer</span>
+                        <span class="bg-green-600/20 text-green-300 border border-green-500/30 px-4 py-2 rounded-full text-sm font-medium">Frontend Developer</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-8 rounded-2xl text-white shadow-2xl border border-purple-500/20">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <div class="text-3xl font-bold">3+</div>
+                                <div class="text-sm opacity-90">Internships</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold">96%</div>
+                                <div class="text-sm opacity-90">ML Certification</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold">10+</div>
+                                <div class="text-sm opacity-90">Tools Mastered</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold">∞</div>
+                                <div class="text-sm opacity-90">Creativity</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-black relative overflow-hidden cyber-grid">
+        <!-- Background Elements -->
+        <div class="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-gray-800/20 to-gray-700/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-r from-gray-700/20 to-gray-600/20 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-5xl font-black text-white mb-4">
+                    <span class="holographic">Skills & Expertise</span>
+                </h2>
+                <div class="w-32 h-1 neon-gradient mx-auto rounded-full mb-4"></div>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Crafting digital experiences with cutting-edge technologies and creative vision
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Design Skills - 3D Flip Card -->
+                <div class="flip-card reveal-left">
+                    <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div class="flip-card-front glass border border-purple-500/30 p-8 flex flex-col items-center justify-center">
+                            <div class="w-20 h-20 neon-gradient rounded-full flex items-center justify-center mb-6 morphing-blob">
+                                <i class="fas fa-palette text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-4 holographic">Design</h3>
+                            <p class="text-gray-300 text-center">Creative visual solutions</p>
+                        </div>
+                        <!-- Back -->
+                        <div class="flip-card-back bg-gradient-to-br from-purple-600 to-pink-600 p-8 text-white">
+                            <h3 class="text-xl font-bold mb-6 text-center">Design Skills</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm font-medium">UI/UX Design</span>
+                                        <span class="text-sm">90%</span>
+                                    </div>
+                                    <div class="w-full bg-white/20 rounded-full h-2">
+                                        <div class="skill-bar bg-white h-2 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm font-medium">Logo Design</span>
+                                        <span class="text-sm">85%</span>
+                                    </div>
+                                    <div class="w-full bg-white/20 rounded-full h-2">
+                                        <div class="skill-bar bg-white h-2 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm font-medium">Poster Making</span>
+                                        <span class="text-sm">88%</span>
+                                    </div>
+                                    <div class="w-full bg-white/20 rounded-full h-2">
+                                        <div class="skill-bar bg-white h-2 rounded-full" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Skills - 3D Flip Card -->
+                <div class="flip-card reveal-up">
+                    <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div class="flip-card-front glass border border-blue-500/30 p-8 flex flex-col items-center justify-center">
+                            <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mb-6 morphing-blob">
+                                <i class="fas fa-code text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-4 holographic">Development</h3>
+                            <p class="text-gray-300 text-center">Building digital solutions</p>
+                        </div>
+                        <!-- Back -->
+                        <div class="flip-card-back bg-gradient-to-br from-green-600 to-blue-600 p-8 text-white">
+                            <h3 class="text-xl font-bold mb-6 text-center">Development Skills</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm font-medium">Frontend Web</span>
+                                        <span class="text-sm">92%</span>
+                                    </div>
+                                    <div class="w-full bg-white/20 rounded-full h-2">
+                                        <div class="skill-bar bg-white h-2 rounded-full" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm font-medium">Machine Learning</span>
+                                        <span class="text-sm">96%</span>
+                                    </div>
+                                    <div class="w-full bg-white/20 rounded-full h-2">
+                                        <div class="skill-bar bg-white h-2 rounded-full" style="width: 96%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm font-medium">Data Analysis</span>
+                                        <span class="text-sm">80%</span>
+                                    </div>
+                                    <div class="w-full bg-white/20 rounded-full h-2">
+                                        <div class="skill-bar bg-white h-2 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Skills - 3D Flip Card -->
+                <div class="flip-card reveal-right">
+                    <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div class="flip-card-front glass border border-pink-500/30 p-8 flex flex-col items-center justify-center">
+                            <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center mb-6 morphing-blob">
+                                <i class="fas fa-video text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-4 holographic">Media</h3>
+                            <p class="text-gray-300 text-center">Visual storytelling</p>
+                        </div>
+                        <!-- Back -->
+                        <div class="flip-card-back bg-gradient-to-br from-red-600 to-pink-600 p-8 text-white">
+                            <h3 class="text-xl font-bold mb-6 text-center">Media Skills</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm font-medium">Video Editing</span>
+                                        <span class="text-sm">87%</span>
+                                    </div>
+                                    <div class="w-full bg-white/20 rounded-full h-2">
+                                        <div class="skill-bar bg-white h-2 rounded-full" style="width: 87%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm font-medium">3D Animation</span>
+                                        <span class="text-sm">75%</span>
+                                    </div>
+                                    <div class="w-full bg-white/20 rounded-full h-2">
+                                        <div class="skill-bar bg-white h-2 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm font-medium">Motion Graphics</span>
+                                        <span class="text-sm">82%</span>
+                                    </div>
+                                    <div class="w-full bg-white/20 rounded-full h-2">
+                                        <div class="skill-bar bg-white h-2 rounded-full" style="width: 82%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Tools Section -->
+            <div class="reveal-up">
+                <h3 class="text-3xl font-bold text-center text-white mb-12">
+                    <span class="holographic">My Arsenal</span>
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                    <div class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-purple-400 rounded-2xl blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300"></div>
+                        <div class="relative glass p-6 rounded-2xl text-center card-hover border border-purple-500/30">
+                            <i class="fab fa-figma text-4xl text-purple-400 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <div class="text-sm font-bold text-white">Figma</div>
+                            <div class="text-xs text-gray-400 mt-1">Design</div>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300"></div>
+                        <div class="relative glass p-6 rounded-2xl text-center card-hover border border-blue-500/30">
+                            <i class="fas fa-cube text-4xl text-blue-400 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <div class="text-sm font-bold text-white">Framer</div>
+                            <div class="text-xs text-gray-400 mt-1">Prototype</div>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-green-600 to-green-400 rounded-2xl blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300"></div>
+                        <div class="relative glass p-6 rounded-2xl text-center card-hover border border-green-500/30">
+                            <i class="fas fa-palette text-4xl text-green-400 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <div class="text-sm font-bold text-white">Canva</div>
+                            <div class="text-xs text-gray-400 mt-1">Graphics</div>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-red-400 rounded-2xl blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300"></div>
+                        <div class="relative glass p-6 rounded-2xl text-center card-hover border border-red-500/30">
+                            <i class="fas fa-cut text-4xl text-red-400 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <div class="text-sm font-bold text-white">CapCut</div>
+                            <div class="text-xs text-gray-400 mt-1">Video</div>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-yellow-600 to-yellow-400 rounded-2xl blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-300"></div>
+                        <div class="relative glass p-6 rounded-2xl text-center card-hover border border-yellow-500/30">
+                            <i class="fas fa-chart-bar text-4xl text-yellow-400 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
+                            <div class="text-sm font-bold text-white">Power BI</div>
+                            <div class="text-xs text-gray-400 mt-1">Analytics</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Experience</h2>
+                <div class="w-24 h-1 gradient-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="space-y-8">
+                <!-- Experience 1 -->
+                <div class="bg-gradient-to-r from-gray-900 to-gray-800 border border-purple-500/20 p-8 rounded-2xl card-hover shadow-2xl">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-white mb-2">UI/UX Design Intern</h3>
+                            <p class="text-purple-400 font-medium mb-2">Skill Craft Technology</p>
+                            <p class="text-gray-400 mb-4">1 Month • Remote</p>
+                            <p class="text-gray-300">
+                                Designed user interfaces and experiences for web applications, created wireframes and prototypes, 
+                                and collaborated with development teams to implement design solutions.
+                            </p>
+                        </div>
+                        <div class="mt-4 md:mt-0 md:ml-8">
+                            <div class="bg-gray-700 border border-purple-500/30 p-4 rounded-xl shadow-md">
+                                <i class="fas fa-mobile-alt text-3xl text-purple-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="bg-gradient-to-r from-blue-50 to-green-50 p-8 rounded-2xl card-hover">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">UI/UX Design Intern</h3>
+                            <p class="text-blue-600 font-medium mb-2">CodSoft</p>
+                            <p class="text-gray-600 mb-4">1 Month • Remote</p>
+                            <p class="text-gray-700">
+                                Focused on user research, created design systems, and developed responsive web designs. 
+                                Gained experience in user testing and iterative design processes.
+                            </p>
+                        </div>
+                        <div class="mt-4 md:mt-0 md:ml-8">
+                            <div class="bg-white p-4 rounded-xl shadow-md">
+                                <i class="fas fa-paint-brush text-3xl text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="bg-gradient-to-r from-green-50 to-yellow-50 p-8 rounded-2xl card-hover">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Web Development Intern</h3>
+                            <p class="text-green-600 font-medium mb-2">EduExpose</p>
+                            <p class="text-gray-600 mb-4">2 Months • Remote</p>
+                            <p class="text-gray-700">
+                                Developed responsive websites using modern frontend technologies, implemented interactive features, 
+                                and optimized web performance. Worked on multiple client projects.
+                            </p>
+                        </div>
+                        <div class="mt-4 md:mt-0 md:ml-8">
+                            <div class="bg-white p-4 rounded-xl shadow-md">
+                                <i class="fas fa-code text-3xl text-green-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certification -->
+                <div class="bg-gradient-to-r from-yellow-50 to-red-50 p-8 rounded-2xl card-hover">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Machine Learning Certification</h3>
+                            <p class="text-yellow-600 font-medium mb-2">Internshala</p>
+                            <p class="text-gray-600 mb-4">Score: 96% • Online Course</p>
+                            <p class="text-gray-700">
+                                Completed comprehensive machine learning course covering algorithms, data preprocessing, 
+                                model evaluation, and practical implementation using Python and popular ML libraries.
+                            </p>
+                        </div>
+                        <div class="mt-4 md:mt-0 md:ml-8">
+                            <div class="bg-white p-4 rounded-xl shadow-md">
+                                <i class="fas fa-brain text-3xl text-yellow-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">My Projects</h2>
+                <div class="w-24 h-1 gradient-bg mx-auto rounded-full"></div>
+                <p class="text-gray-600 mt-4">Check out my Figma projects and design work</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project placeholders - you can add your actual Figma project links -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center">
+                        <i class="fab fa-figma text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Mobile login page</h3>
+                        <p class="text-gray-600 mb-4">Mobile app design with modern interface and smooth user experience.</p>
+                        <a href="https://www.figma.com/design/fjiEeJ12f5tjvWULmngI3T/mobile-login-app?m=auto&t=PcHwgzQ5e2OH6cIf-6" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium">
+                            View on Figma <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-desktop text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">E commerce app</h3>
+                        <p class="text-gray-600 mb-4">Responsive website design with clean aesthetics and intuitive navigation.</p>
+                        <a href="https://www.figma.com/design/GsBHXkBtx1AZDfnhbl7tbS/E-commerce-app?m=auto&t=B10U42zzi3k1WEmn-6" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium">
+                            View on Figma <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-desktop text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">E mail Template</h3>
+                        <p class="text-gray-600 mb-4">Responsive website design with clean aesthetics and intuitive navigation.</p>
+                        <a href="https://www.figma.com/design/F1UQvGO6fwQxZmAopYfhUt/email-template?m=auto&t=B10U42zzi3k1WEmn-6" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium">
+                            View on Figma <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-desktop text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Book Corner</h3>
+                        <p class="text-gray-600 mb-4">Responsive website design with clean aesthetics and intuitive navigation.</p>
+                        <a href="https://www.figma.com/design/E9Dy4sIQFzn6jNuAzx2muJ/BOOK-CORNER?m=auto&t=B10U42zzi3k1WEmn-6" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium">
+                            View on Figma <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-desktop text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">News App</h3>
+                        <p class="text-gray-600 mb-4">Responsive website design with clean aesthetics and intuitive navigation.</p>
+                        <a href="https://www.figma.com/design/FcayZRc5VKmTeKweZtiUTc/NEWS-APP?m=auto&t=B10U42zzi3k1WEmn-6" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium">
+                            View on Figma <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-red-400 to-pink-500 flex items-center justify-center">
+                        <i class="fas fa-palette text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Restaurant Menu App</h3>
+                        <p class="text-gray-600 mb-4">Complete brand identity design including logo, colors, and typography.</p>
+                        <a href="https://www.figma.com/design/5oHr4jdqxxNiB1eiVZCjNn/Restaurant-menu-app?m=auto&t=B10U42zzi3k1WEmn-6" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium">
+                            View on Figma <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-4">Want to see more of my work?</p>
+                <a href="https://figma.com/@DHARANISH . S" target="_blank" class="inline-block bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors">
+                    Visit My Figma Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Let's Connect</h2>
+                <div class="w-24 h-1 bg-white mx-auto rounded-full"></div>
+                <p class="text-white/90 mt-4">Ready to work together? Let's create something amazing!</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Phone</p>
+                                <a href="tel:+919843742866" class="text-white/90 hover:text-white">+91 98437 42866</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Email</p>
+                                <a href="mailto:dharanish1112@gmail.com" class="text-white/90 hover:text-white">dharanish1112@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Location</p>
+                                <p class="text-white/90">Tamil Nadu, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Quick Contact</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <a href="https://wa.me/919843742866?text=Hi%20Dharanish,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" 
+                           target="_blank" 
+                           class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-xl text-center transition-colors card-hover">
+                            <i class="fab fa-whatsapp text-2xl mb-2"></i>
+                            <div class="text-sm font-medium">WhatsApp</div>
+                        </a>
+                        <a href="https://linkedin.com/in/dharanish-s" 
+                           target="_blank" 
+                           class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-xl text-center transition-colors card-hover">
+                            <i class="fab fa-linkedin-in text-2xl mb-2"></i>
+                            <div class="text-sm font-medium">LinkedIn</div>
+                        </a>
+                    </div>
+                    <a href="mailto:dharanish.s@example.com" 
+                       class="w-full bg-white/20 hover:bg-white/30 text-white p-4 rounded-xl text-center transition-colors block card-hover">
+                        <i class="fas fa-envelope text-xl mr-2"></i>
+                        Send Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">
+                © 2024 Dharanish S. Designed with ❤️ for professional excellence.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            const scrolled = window.scrollY > 100;
+            
+            if (scrolled) {
+                nav.style.background = 'rgba(17, 24, 39, 0.95)';
+                nav.style.backdropFilter = 'blur(20px)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.1)';
+                nav.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Advanced scroll reveal animations
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all reveal elements
+        document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Magnetic effect for buttons and cards
+        document.querySelectorAll('.magnetic').forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                el.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // Particle system
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.width = (Math.random() * 5 + 2) + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            
+            document.querySelector('.particles').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 20000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+
+        // Matrix rain effect
+        function createMatrixChar() {
+            const chars = ['0', '1', '01', '10', '11', '00'];
+            const char = document.createElement('div');
+            char.className = 'matrix-char mono';
+            char.textContent = chars[Math.floor(Math.random() * chars.length)];
+            char.style.left = Math.random() * 100 + '%';
+            char.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            char.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.querySelector('.matrix-rain').appendChild(char);
+            
+            setTimeout(() => {
+                char.remove();
+            }, 5000);
+        }
+
+        // Create matrix characters periodically
+        setInterval(createMatrixChar, 500);
+
+        // Cursor trail effect
+        const cursor = document.createElement('div');
+        cursor.className = 'fixed w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full pointer-events-none z-50 opacity-50 blur-sm';
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 8 + 'px';
+            cursor.style.top = e.clientY - 8 + 'px';
+        });
+
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.float-1, .float-2, .float-3');
+            
+            parallaxElements.forEach((el, index) => {
+                const speed = (index + 1) * 0.5;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Typewriter effect restart
+        function restartTypewriter() {
+            const typewriterElement = document.querySelector('.typewriter');
+            if (typewriterElement) {
+                typewriterElement.style.animation = 'none';
+                setTimeout(() => {
+                    typewriterElement.style.animation = 'typing 4s steps(40, end), blink-caret 0.75s step-end infinite';
+                }, 100);
+            }
+        }
+
+        // Restart typewriter every 10 seconds
+        setInterval(restartTypewriter, 10000);
+
+        // Enhanced card interactions
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-20px) rotateX(5deg) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateX(0) scale(1)';
+            });
+        });
+
+        // Skill bar animation trigger
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    skillBars.forEach((bar, index) => {
+                        setTimeout(() => {
+                            bar.style.animation = 'skillShine 2s ease-in-out';
+                        }, index * 200);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.flip-card').forEach(card => {
+            skillObserver.observe(card);
+        });
+
+        // Dynamic gradient animation
+        let gradientAngle = 0;
+        function animateGradients() {
+            gradientAngle += 1;
+            const gradientElements = document.querySelectorAll('.gradient-bg, .neon-gradient');
+            gradientElements.forEach(el => {
+                el.style.backgroundPosition = `${Math.sin(gradientAngle * 0.01) * 50 + 50}% ${Math.cos(gradientAngle * 0.01) * 50 + 50}%`;
+            });
+            requestAnimationFrame(animateGradients);
+        }
+        animateGradients();
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 1s ease-in-out';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Performance optimization
+        let ticking = false;
+        function updateOnScroll() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    // Scroll-based animations here
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        window.addEventListener('scroll', updateOnScroll);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96d00863b4077f46',t:'MTc1NDgzNDU2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
